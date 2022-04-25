@@ -7,8 +7,7 @@ export default function About() {
     return (
         <View style={styles.container} >
             <Text>Navegação Bem sucedida </Text>
-            <Ionicons name="md-checkmark-circle" size={32} color="green" />
-            <AntDesign name="smile-circle" size={50} color="green" />
+            <Ionicons name="md-checkmark-circle" size={50} color="green" />
             <StatusBar style="auto" />
         </View>
     );

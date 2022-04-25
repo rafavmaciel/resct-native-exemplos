@@ -10,9 +10,9 @@ export default function Index() {
         <View style={styles.container}>
             <Text>ihuuuuu!</Text>
             <Button
-                title="Ir para sobre"
+                title="Ir para Detalhes"
                 onPress={() => {
-                    navigation.navigate("About");
+                    navigation.navigate("Detalhes");
                 }}
             />
             <StatusBar style="auto" />
