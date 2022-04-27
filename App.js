@@ -1,44 +1,37 @@
 //import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer} from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Ionicons from "@expo/vector-icons/Ionicons";
+import { createStackNavigator } from '@react-navigation/native-stack';
 
-import Home from './src/home/index';
-import About from './src/about/index';
+import Home from './src/pages/home/index';
+import About from './src/pages/about/index';
 
-const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator 
-        screenOptions={{
-          //headerShown: false,   // remove header
-          tabBarHideOnKeyboard: true, // esconder tabbar quando teclado aberto
-          tabBarActiveTintColor : '#e91e63', // cor do icone ativo
-          tabBarStyle: {
-            backgroundColor: '#202225', // cor de fundo
-            borderTopColor: '#e91e63', // borda superior
-            borderTopWidth: 3, // largura da borda superior
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={Home} options={{
+          title: 'Home',
+          headerStyle: {
+            backgroundColor: '#f4511e',
           },
-        }}
-       >
-        <Tab.Screen name="Home" component={Home} 
-        options = {{
-          tabBarLabel: 'Home',
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="ios-home" color={color} size={size} />
-          ),
-
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
         }} />
-        <Tab.Screen name="About" component={About}
-        options = {{
-          tabBarLabel: 'Sobre',
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="ios-information-circle" color={color} size={size} />
-          ),
+        <Stack.Screen name="About" component={About} options={{
+          title: 'About',
+          headerStyle: {
+            backgroundColor: '#f4511e',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
         }} />
-      </Tab.Navigator> 
+      </Stack.Navigator>
     </NavigationContainer>
     );
 }
