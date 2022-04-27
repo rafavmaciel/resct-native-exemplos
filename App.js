@@ -1,18 +1,20 @@
 //import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer} from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Home from './src/pages/home/index';
 import About from './src/pages/about/index';
+import Task from './src/pages/task/task';
+import NewTask from './src/pages/newTask/NewTask';
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} options={{
-          title: 'Home',
+        <Stack.Screen name="Task" component={Task} options={{
+          title: 'Tarefa',
           headerStyle: {
             backgroundColor: '#f4511e',
           },
@@ -21,8 +23,8 @@ export default function App() {
             fontWeight: 'bold',
           },
         }} />
-        <Stack.Screen name="About" component={About} options={{
-          title: 'About',
+        <Stack.Screen name="NewTask" component={NewTask} options={{
+          title: 'Nova Tarefa',
           headerStyle: {
             backgroundColor: '#f4511e',
           },
