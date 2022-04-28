@@ -34,17 +34,30 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     Tasks: {
-        width: '100%',
+        width: '90%',
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginTop: 10,
+        marginRight: 10,
     },
     deleteTask: {
         justifyContent: 'center',
-        paddingLeft: 100,
-        margin : 20,
+        paddingLeft: 10,
+        margin : 15,
     },
     descriptionText: {
+        width: '75%',
+        alignContent: 'flex-start',
+        backgroundColor: '#F92e6a',
+        padding: 12,
+        paddingHorizontal: 20,
+        borderRadius: 50,
+        marginBottom: 10,
+        marginRight : 15,
+        color: '#f5fffb',
+    }, 
+
+    descriptionTextAsDone: {
         width: '75%',
         alignContent: 'flex-start',
         backgroundColor: '#f5f5f5cf',
@@ -53,7 +66,8 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         marginBottom: 10,
         marginRight : 15,
-        color: '#282b2db5',
+        color: '#696969',
+        textDecorationLine: 'line-through',
     }, 
 });
 

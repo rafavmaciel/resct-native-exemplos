@@ -6,6 +6,7 @@ import Home from './src/pages/home/index';
 import About from './src/pages/about/index';
 import Task from './src/pages/task/task';
 import NewTask from './src/pages/newTask/NewTask';
+import Details from './src/pages/details/details';
 
 const Stack = createNativeStackNavigator();
 
@@ -33,9 +34,37 @@ export default function App() {
             fontWeight: 'bold',
           },
         }} />
+        <Stack.Screen name="Details" component={Details} options={{
+          title: 'Detalhes',
+          headerStyle: {
+            backgroundColor: '#f4511e',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }} />
+        <Stack.Screen name="Home" component={Home} options={{
+          title: 'Home',
+          headerStyle: {
+            backgroundColor: '#f4511e',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }} />
+        <Stack.Screen name="About" component={About} options={{
+          title: 'Sobre',
+          headerStyle: {
+            backgroundColor: '#f4511e',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }} />
       </Stack.Navigator>
     </NavigationContainer>
-    );
+  );
 }
-
-
