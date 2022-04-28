@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     },
 
     iconButton: {
-        color: '#ffffff',
+        color: '#f5fffb',
         fontSize: 30,
         fontWeight: 'bold',
     },
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     Tasks: {
-        width: '90%',
+        width: '85%',
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginTop: 10,
@@ -42,15 +42,16 @@ const styles = StyleSheet.create({
     },
     deleteTask: {
         justifyContent: 'center',
-        paddingLeft: 10,
+        padding: 7,
         margin : 15,
+        backgroundColor : '#f4511e',
+        borderRadius : 100,
     },
     descriptionText: {
         width: '75%',
-        alignContent: 'flex-start',
+        alignContent: 'center',
         backgroundColor: '#F92e6a',
-        padding: 12,
-        paddingHorizontal: 20,
+        padding: 18,
         borderRadius: 50,
         marginBottom: 10,
         marginRight : 15,
@@ -61,7 +62,7 @@ const styles = StyleSheet.create({
         width: '75%',
         alignContent: 'flex-start',
         backgroundColor: '#f5f5f5cf',
-        padding: 12,
+        padding: 18,
         paddingHorizontal: 20,
         borderRadius: 50,
         marginBottom: 10,

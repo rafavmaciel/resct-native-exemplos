@@ -34,11 +34,11 @@ export default function Task({ navigation }) {
                         deleteTask(item.id);
                     }}
                 >
-                    <FontAwesome5 name="trash-alt" size={20} color="#F92e6a" />
+                    <FontAwesome5 name="trash-alt" size={20} color="#f5fffb" />
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.deleteTask} onPress={() => markAsdone(item.id, item.status) }>
-                    <FontAwesome5 name="check" size={20} color="#F92e6a" />
+                    <FontAwesome5 name="check" size={20} color="#f5fffb" />
                 </TouchableOpacity>
 
                 <Text
