@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { KeyboardAvoidingView, View, Text, Image, TextInput, TouchableOpacity, Animated, Keyboard } from "react-native";
-import database from "../../config/firebase";
+import firebase from "../../config/firebase";
 import styles from "./styles";
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword} from "firebase/auth";
 
-export default function App() {
-    const [offset] = useState(new Animated.ValueXY({ x: 0, y: 80 }));
+export default function App({ navigation }) {
+    const [offset] = useState(new Animated.ValueXY({ x: 0, y: 150 }));
     const [opacity] = useState(new Animated.Value(0));
-    const [logo] = useState(new Animated.ValueXY({ x: 170, y: 195 }));
+    const [logo] = useState(new Animated.ValueXY({ x: 170, y: 235 }));
 
     // estados do cadastro
     const [email, setEmail] = useState("");
@@ -15,21 +14,13 @@ export default function App() {
 
     //função do cadastro
     async function cadastrar() {
-        await createUserWithEmailAndPassword(email, password)
-            .then((value) => {
-                alert("Cadastro realizado com sucesso!" + value.user.email);
-            })
-            .catch((error) => {
-                if (error.code === "auth/invalid-email") {
-                    alert("E-mail inválido!");
-                } else if (error.code === "auth/weak-password") {
-                    alert("Senha muito fraca!");
-                } else if (error.code === "auth/email-already-in-use") {
-                    alert("E-mail já cadastrado!");
-                } else {
-                    alert(error.message);
-                }
-            });
+        await firebase.auth().signInWithEmailAndPassword(email, password).then((value) => {
+            navigation.navigate("Task");
+            
+        }).catch((error) => {
+            alert(error.message);
+        }
+        );
     }
 
     useEffect(() => {
@@ -50,7 +41,7 @@ export default function App() {
             // Anima um valor ao longo do tempo
             Animated.timing(opacity, {
                 toValue: 1,
-                duration: 200,
+                duration: 300,
                 useNativeDriver: false,
             }),
         ]).start();
@@ -65,7 +56,7 @@ export default function App() {
             }),
 
             Animated.timing(logo.y, {
-                toValue: 105,
+                toValue: 135,
                 duration: 100,
                 useNativeDriver: false,
             }),
@@ -97,7 +88,7 @@ export default function App() {
                             width: logo.x,
                             height: logo.y,
                         }}
-                        source={require("../../../assets/logo.png")}
+                        source={require("../../../assets/Rafael.png")}
                     />
                 </View>
 

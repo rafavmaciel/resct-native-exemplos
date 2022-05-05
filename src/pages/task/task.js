@@ -9,10 +9,11 @@ import {
     TextInput,
 } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
-import database from "../../config/firebase";
+import firebase from "../../config/firebase";
 import styles from "./style";
 
 export default function Task({ navigation }) {
+    const database = firebase.firestore();
     const [task, setTask] = useState([]);
 
     function deleteTask(id) {

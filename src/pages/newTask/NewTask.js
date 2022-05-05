@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
-import database from "../../config/firebase";
+import firebase from "../../config/firebase";
 import styles from "./style";
 import { FontAwesome5 } from "@expo/vector-icons";
 
 export default function NewTask({ navigation }) {
     const [description, setDescription] = useState("");
+    const database = firebase.firestore();
 
     function formatDate() {
         var data = new Date(),

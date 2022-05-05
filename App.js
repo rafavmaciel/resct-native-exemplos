@@ -21,11 +21,11 @@ export default function App() {
                     options={{
                         title: "Cadastrar",
                         headerStyle: {
-                            backgroundColor: "#59BFFF",
+                            backgroundColor: "#f4511e",
                         },
                     }}
                 />
-                {/* <Stack.Screen
+                <Stack.Screen
                     name="Task"
                     component={Task}
                     options={{
@@ -94,7 +94,7 @@ export default function App() {
                             fontWeight: "bold",
                         },
                     }}
-                /> */}
+                />
             </Stack.Navigator>
         </NavigationContainer>
     );
