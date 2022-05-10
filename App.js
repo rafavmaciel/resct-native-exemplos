@@ -7,7 +7,8 @@ import About from "./src/pages/about/index";
 import Task from "./src/pages/task/task";
 import NewTask from "./src/pages/newTask/NewTask";
 import Details from "./src/pages/details/details";
-import Cadastrar from "./src/pages/cadastro/Cadastrar";
+import Login from "./src/pages/login/Login";
+import Cadastrar from "./src/pages/cadastrar/Cadastrar";
 
 const Stack = createNativeStackNavigator();
 
@@ -16,8 +17,8 @@ export default function App() {
         <NavigationContainer>
             <Stack.Navigator>
                 <Stack.Screen
-                    name="Cadastrar"
-                    component={Cadastrar}
+                    name="Login"
+                    component={Login}
                     options={{
                         title: "Cadastrar",
                         headerStyle: {
@@ -86,6 +87,20 @@ export default function App() {
                     component={About}
                     options={{
                         title: "Sobre",
+                        headerStyle: {
+                            backgroundColor: "#f4511e",
+                        },
+                        headerTintColor: "#fff",
+                        headerTitleStyle: {
+                            fontWeight: "bold",
+                        },
+                    }}
+                />
+                <Stack.Screen
+                    name="Cadastrar"
+                    component={Cadastrar}
+                    options={{
+                        title: "Cadastrar",
                         headerStyle: {
                             backgroundColor: "#f4511e",
                         },

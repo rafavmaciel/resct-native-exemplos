@@ -12,7 +12,8 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import firebase from "../../config/firebase";
 import styles from "./style";
 
-export default function Task({ navigation }) {
+export default function Task({ route, navigation }) {
+    const userId = route.params.userId;
     const database = firebase.firestore();
     const [task, setTask] = useState([]);
 
@@ -83,7 +84,7 @@ export default function Task({ navigation }) {
             />
             <TouchableOpacity
                 style={styles.bottonNewTask}
-                onPress={() => navigation.navigate("NewTask")}
+                onPress={() => navigation.navigate("NewTask", {userId: userId})}
             >
                 <Text styles={styles.iconButton}>+</Text>
             </TouchableOpacity>

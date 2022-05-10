@@ -3,10 +3,18 @@ import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import firebase from "../../config/firebase";
 import styles from "./style";
 import { FontAwesome5 } from "@expo/vector-icons";
+import Calendar from "../../components/Calendar";
 
-export default function NewTask({ navigation }) {
+export default function NewTask({route, navigation }) {
+    const userId = route.params.userId;
     const [description, setDescription] = useState("");
     const database = firebase.firestore();
+    const [date, setDate] = useState('');
+
+    function getDate(dateTime) {
+        setDate(dateTime);
+    }
+
 
     function formatDate() {
         var data = new Date(),
@@ -21,7 +29,7 @@ export default function NewTask({ navigation }) {
     function addTask() {
         database.collection("Tasks").add({
             description: description,
-            date: formatDate(),
+            date: date,
             status: false,
             createdAt: new Date(),
         });
@@ -37,6 +45,7 @@ export default function NewTask({ navigation }) {
                 onChangeText={setDescription}
                 value={description}
             />
+            
             <TouchableOpacity
                 style={styles.bottonNewTask}
                 onPress={() => {
@@ -45,6 +54,7 @@ export default function NewTask({ navigation }) {
             >
                 <FontAwesome5 name="plus" size={20} color="#fff" />
             </TouchableOpacity>
+            <Calendar style={styles.calendar} getDate={getDate} />
         </View>
     );
 }

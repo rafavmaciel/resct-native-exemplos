@@ -13,9 +13,9 @@ export default function App({ navigation }) {
     const [password, setPassword] = useState("");
 
     //função do cadastro
-    async function cadastrar() {
+    async function logar() {
         await firebase.auth().signInWithEmailAndPassword(email, password).then((value) => {
-            navigation.navigate("Task");
+            navigation.navigate("Task", {userId: value.user.uid});
             
         }).catch((error) => {
             alert(error.message);
@@ -130,11 +130,11 @@ export default function App({ navigation }) {
                     <Text>{email}</Text>
                     <Text>{password}</Text>
 
-                    <TouchableOpacity style={styles.buttonSubmit} onPress={() => cadastrar()}>
+                    <TouchableOpacity style={styles.buttonSubmit} onPress={() => logar()}>
                         <Text style={styles.submitText}>Acessar</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={styles.buttonRegister}>
+                    <TouchableOpacity style={styles.buttonRegister} onPress = { ()=> navigation.navigate("Cadastrar") } >
                         <Text style={styles.registerText}>Criar conta gratuita</Text>
                     </TouchableOpacity>
                 </Animated.View>

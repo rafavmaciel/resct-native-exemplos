@@ -15,13 +15,18 @@ const styles = StyleSheet.create({
         marginBottom: 30,
     },
     textInput: {
-        height: 40,
+        height: 60,
         marginLeft: 10,
         width: '80%',
         borderColor: "red",
         borderWidth: 1,
         borderRadius: 30,
         padding: 12,
+        marginBottom: 10,
+        marginEnd: 20,
+        backgroundColor: '#fff',
+        fontSize: 20,
+
     },
     bottonNewTask: {
         width:60,
@@ -38,7 +43,6 @@ const styles = StyleSheet.create({
         fontSize: 10,
         color: '#fff',
     },
-
 });
 
 
