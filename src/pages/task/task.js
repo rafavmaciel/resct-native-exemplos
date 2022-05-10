@@ -18,11 +18,11 @@ export default function Task({ route, navigation }) {
     const [task, setTask] = useState([]);
 
     function deleteTask(id) {
-        database.collection("Tasks").doc(id).delete();
+        database.collection("Users").doc(userId).collection("Tasks").doc(id).delete();
     }
 
     function markAsdone (id, status) {
-        database.collection("Tasks").doc(id).update({
+        database.collection("Users").doc(userId).collection("Tasks").doc(id).update({
             status: status? false : true
         })
     }
@@ -62,7 +62,7 @@ export default function Task({ route, navigation }) {
 
     useEffect(() => {
         database
-            .collection("Tasks")
+            .collection("Users").doc(userId).collection("Tasks")           
             .orderBy("createdAt", "desc")
             .onSnapshot((query) => {
                 const list = [];

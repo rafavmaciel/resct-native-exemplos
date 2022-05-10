@@ -5,16 +5,15 @@ import styles from "./style";
 import { FontAwesome5 } from "@expo/vector-icons";
 import Calendar from "../../components/Calendar";
 
-export default function NewTask({route, navigation }) {
+export default function NewTask({ route, navigation }) {
     const userId = route.params.userId;
     const [description, setDescription] = useState("");
     const database = firebase.firestore();
-    const [date, setDate] = useState('');
+    const [date, setDate] = useState("");
 
     function getDate(dateTime) {
         setDate(dateTime);
     }
-
 
     function formatDate() {
         var data = new Date(),
@@ -27,14 +26,22 @@ export default function NewTask({route, navigation }) {
     }
 
     function addTask() {
-        database.collection("Tasks").add({
-            description: description,
-            date: date,
-            status: false,
-            createdAt: new Date(),
-        });
-        navigation.navigate("Task");
+        let tarefa = database
+            .collection("Users")
+            .doc(userId)
+            .collection("Tasks")
+            .add({
+                description: description,
+                date: date,
+                status: false,
+                createdAt: formatDate(),
+                updatedAt: formatDate(),
+            })
+            .then(() => {
+                navigation.navigate("Task", { userId: userId });
+            });
     }
+
 
     return (
         <View style={styles.container}>
@@ -45,7 +52,7 @@ export default function NewTask({route, navigation }) {
                 onChangeText={setDescription}
                 value={description}
             />
-            
+
             <TouchableOpacity
                 style={styles.bottonNewTask}
                 onPress={() => {
