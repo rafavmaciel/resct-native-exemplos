@@ -26,6 +26,7 @@ export default function NewTask({ route, navigation }) {
     }
 
     function addTask() {
+        // cria uma coleção Users com doc(objetos) com o id do usuario e dentro deles uma coleção Tasks
         let tarefa = database
             .collection("Users")
             .doc(userId)
